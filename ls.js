@@ -8,7 +8,7 @@
 /*global define, window, XMLHttpRequest, importScripts, Packages, java,
   ActiveXObject, process, require */
 
-define(['coffee-script'], function (CoffeeScript) {
+define(['livescript'], function (LiveScript) {
     'use strict';
     var fs, getXhr,
         progIds = ['Msxml2.XMLHTTP', 'Microsoft.XMLHTTP', 'Msxml2.XMLHTTP.4.0'],
@@ -108,7 +108,7 @@ define(['coffee-script'], function (CoffeeScript) {
 
     return {
         get: function () {
-            return CoffeeScript;
+            return LiveScript;
         },
 
         write: function (pluginName, name, write) {
@@ -124,9 +124,9 @@ define(['coffee-script'], function (CoffeeScript) {
             var path = parentRequire.toUrl(name + '.coffee');
             fetchText(path, function (text) {
 
-                //Do CoffeeScript transform.
+                //Do LiveScript transform.
                 try {
-                  text = CoffeeScript.compile(text, config.CoffeeScript);
+                  text = LiveScript.compile(text, config.LiveScript);
                 }
                 catch (err) {
                   err.message = "In " + path + ", " + err.message;
