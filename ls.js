@@ -121,7 +121,7 @@ define(['livescript'], function (LiveScript) {
         version: '0.4.2',
 
         load: function (name, parentRequire, load, config) {
-            var path = parentRequire.toUrl(name + '.coffee');
+            var path = parentRequire.toUrl(name + '.ls');
             fetchText(path, function (text) {
 
                 //Do LiveScript transform.
